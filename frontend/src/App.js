@@ -34,7 +34,7 @@ function App() {
   const [signupSuccess, setSignupSuccess] = useState("");
 
   useEffect(() => {
-    fetch("http://3.83.217.222:5000/stations")
+    fetch("http://54.167.193.212:5000/stations")
       .then((res) => res.json())
       .then((data) => setStations(data))
       .catch((err) => console.log(err));
