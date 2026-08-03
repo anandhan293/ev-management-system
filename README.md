@@ -1,22 +1,3 @@
-EV Management System project root:
-
-Current structure:
-
-evdb/
-├── Jenkinsfile
-├── backend
-├── frontend
-├── docker-compose.yml
-└── README.md   ✅
-
-Create file:
-
-cd /root/evdb
-
-vi README.md
-
-Paste:
-
 # EV Charging Station Management System
 
 ## Project Overview
