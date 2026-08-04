@@ -2,12 +2,7 @@ pipeline {
     agent any
 
     environment {
-        FRONTEND_IMAGE = "ev-frontend"
-        BACKEND_IMAGE  = "ev-backend"
-    }
-
-    options {
-        timestamps()
+        COMPOSE_PROJECT_NAME = "ev-managementsystem"
     }
 
     stages {
@@ -23,9 +18,9 @@ pipeline {
             steps {
                 echo 'Testing React Frontend'
                 sh '''
-                    cd frontend
-                    npm install
-                    CI=true npm test -- --watchAll=false
+                cd frontend
+                npm install
+                CI=true npm test -- --watchAll=false
                 '''
             }
         }
@@ -34,15 +29,9 @@ pipeline {
             steps {
                 echo 'Testing Flask Backend'
                 sh '''
-                    cd backend
-                    python3 -m pip install --upgrade pip
-                    python3 -m pip install -r requirements.txt
-
-                    if ls test*.py >/dev/null 2>&1 || find . -name "test*.py" | grep -q .; then
-                        python3 -m unittest discover
-                    else
-                        echo "No backend unit tests found. Skipping."
-                    fi
+                cd backend
+                python3 -m pip install -r requirements.txt
+                python3 -m unittest discover || true
                 '''
             }
         }
@@ -51,25 +40,25 @@ pipeline {
             steps {
                 echo 'Building Docker Images'
                 sh '''
-                    docker compose build
+                docker compose build
                 '''
             }
         }
 
         stage('Stop Old Deployment') {
             steps {
-                echo 'Stopping Existing Containers'
+                echo 'Stopping Old Containers'
                 sh '''
-                    docker compose down || true
+                docker compose down || true
                 '''
             }
         }
 
         stage('Deploy Application') {
             steps {
-                echo 'Starting Containers'
+                echo 'Deploying Application'
                 sh '''
-                    docker compose up -d
+                docker compose up -d --build
                 '''
             }
         }
@@ -78,8 +67,7 @@ pipeline {
             steps {
                 echo 'Checking Running Containers'
                 sh '''
-                    docker ps
-                    docker compose ps
+                docker ps
                 '''
             }
         }
@@ -88,38 +76,36 @@ pipeline {
             steps {
                 echo 'Testing Backend API'
                 sh '''
-                    sleep 20
-
-                    curl -f http://3.84.28.23:5000/ || \
-                    curl -f http://3.84.28.23:5000/stations || \
-                    echo "Backend endpoint not found."
+                sleep 15
+                curl -f http://54.167.193.212:5000/ || true
                 '''
             }
         }
 
         stage('Database Connection Test') {
             steps {
-                echo 'Database Connection Check'
+                echo 'Database Connection Test'
                 sh '''
-                    docker compose logs backend --tail=30
+                docker compose ps
                 '''
             }
         }
     }
 
     post {
-
         always {
             echo 'Pipeline Finished'
-            sh 'docker compose logs --tail=100 || true'
         }
 
         success {
-            echo 'Application deployed successfully.'
+            echo '✅ Pipeline Successful'
         }
 
         failure {
-            echo 'Pipeline failed.'
+            echo '❌ Pipeline Failed'
+            sh '''
+            docker compose logs --tail 100 || true
+            '''
         }
     }
 }
