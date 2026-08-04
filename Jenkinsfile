@@ -60,7 +60,12 @@ pipeline {
             steps {
                 echo 'Stopping Existing Containers'
                 sh '''
-                    docker compose down || true
+                    docker compose down --remove-orphans || true
+
+                    docker stop evdb-backend evdb-frontend 2>/dev/null || true
+                    docker rm -f evdb-backend evdb-frontend 2>/dev/null || true
+
+                    docker container prune -f || true
                 '''
             }
         }
@@ -69,7 +74,7 @@ pipeline {
             steps {
                 echo 'Starting Containers'
                 sh '''
-                    docker compose up -d
+                    docker compose up -d --build
                 '''
             }
         }
@@ -108,10 +113,11 @@ pipeline {
     }
 
     post {
-
         always {
             echo 'Pipeline Finished'
-            sh 'docker compose logs --tail=100 || true'
+            sh '''
+                docker compose logs --tail=100 || true
+            '''
         }
 
         success {
