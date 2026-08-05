@@ -19,17 +19,27 @@ The application provides:
 
 
 
-User
-|
-| HTTP Request
-|
-React Frontend
-|
-|
-Flask Backend API
-|
-|
-MySQL Database
+                    User
+                      │
+              HTTP/HTTPS Request
+                      │
+                      ▼
+        ┌─────────────────────────┐
+        │     React Frontend      │
+        │   (Web Application)     │
+        └───────────┬─────────────┘
+                    │ REST API
+                    ▼
+        ┌─────────────────────────┐
+        │    Flask Backend API    │
+        │   (Business Logic)      │
+        └───────────┬─────────────┘
+                    │ SQL Queries
+                    ▼
+        ┌─────────────────────────┐
+        │     MySQL Database      │
+        │   (Amazon RDS MySQL)    │
+        └─────────────────────────┘
 
 
 ## Technology Stack
