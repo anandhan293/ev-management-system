@@ -17,31 +17,6 @@ The application provides:
 ## Architecture
 <img width="1536" height="1024" alt="ChatGPT Image Aug 4, 2026, 02_39_08 PM" src="https://github.com/user-attachments/assets/74f4f9c1-be18-42d4-b754-44b77b856ad5" />
 
-
-
-                    User
-                      │
-              HTTP/HTTPS Request
-                      │
-                      ▼
-        ┌─────────────────────────┐
-        │     React Frontend      │
-        │   (Web Application)     │
-        └───────────┬─────────────┘
-                    │ REST API
-                    ▼
-        ┌─────────────────────────┐
-        │    Flask Backend API    │
-        │   (Business Logic)      │
-        └───────────┬─────────────┘
-                    │ SQL Queries
-                    ▼
-        ┌─────────────────────────┐
-        │     MySQL Database      │
-        │   (Amazon RDS MySQL)    │
-        └─────────────────────────┘
-
-
 ## Technology Stack
 
 ### Frontend
@@ -69,7 +44,6 @@ The application provides:
 
 ## Project Structure
 
-
 ev-management-system/
 
 EV-Management-System/
@@ -88,8 +62,6 @@ EV-Management-System/
 ├── Jenkinsfile
 └── README.md
 
-
-
 ## Backend API
 
 ### Get All Stations
@@ -99,18 +71,12 @@ GET /stations
 
 
 Example:
-
-
 http://localhost:5000/stations
-
 
 
 ### Filter By District
 
-
 GET /stations/<district>
-
-
 
 ## Docker Deployment
 
@@ -162,6 +128,7 @@ Online EV charging booking
 Payment integration
 Charging history reports
 Cloud deployment using AWS
+
 Author
 
 Anandhan 
