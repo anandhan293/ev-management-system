@@ -15,7 +15,8 @@ The application provides:
 
 
 ## Architecture
-![Uploading ChatGPT Image Aug 4, 2026, 02_39_08 PM.png…]()
+<img width="1536" height="1024" alt="ChatGPT Image Aug 4, 2026, 02_39_08 PM" src="https://github.com/user-attachments/assets/74f4f9c1-be18-42d4-b754-44b77b856ad5" />
+
 
 
 User
