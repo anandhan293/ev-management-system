@@ -220,7 +220,7 @@ git push origin main
 
 ## 👨‍💻 Author
 
-**Anandhan v**
+**Anandhan V**
 
 AWS DevOps | Docker | Jenkins | Python | React | Flask
 
