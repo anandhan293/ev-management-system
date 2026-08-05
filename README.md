@@ -24,25 +24,6 @@ The EV Charging Station Management System is designed to manage electric vehicle
 
 ![Architecture](https://github.com/user-attachments/assets/74f4f9c1-be18-42d4-b754-44b77b856ad5)
 
-### 3-Tier Architecture
-
-```
-User
-   │
-HTTP/HTTPS
-   │
-   ▼
-React Frontend
-   │
-REST API
-   ▼
-Flask Backend
-   │
-SQL
-   ▼
-MySQL Database
-```
-
 ---
 
 ## 🛠️ Technology Stack
