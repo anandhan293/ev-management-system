@@ -1,51 +1,79 @@
-# EV Charging Station Management System
+# ⚡ EV Charging Station Management System
 
-## Project Overview
+A full-stack **3-Tier EV Charging Station Management System** built with **React, Flask, MySQL, Docker, and Jenkins**. The application allows users to view EV charging stations, check charging port availability, and retrieve station details through a REST API.
 
-EV Charging Station Management System is a 3-Tier application developed to manage electric vehicle charging stations.
+---
 
-The application provides:
-- EV station management
-- District-wise station details
-- Available charging ports
-- Backend REST API
-- Database integration
-- Docker container deployment
-- Jenkins CI/CD automation
+## 📌 Project Overview
 
+The EV Charging Station Management System is designed to manage electric vehicle charging stations efficiently. It demonstrates modern full-stack development and DevOps practices using Docker containers and Jenkins CI/CD.
 
-## Architecture
-<img width="1536" height="1024" alt="ChatGPT Image Aug 4, 2026, 02_39_08 PM" src="https://github.com/user-attachments/assets/74f4f9c1-be18-42d4-b754-44b77b856ad5" />
+### Features
 
-## Technology Stack
+- 🚗 View EV charging stations
+- 📍 District-wise station search
+- 🔌 Display available charging ports
+- 🌐 RESTful API using Flask
+- 🗄️ MySQL database integration
+- 🐳 Docker containerization
+- ⚙️ Jenkins CI/CD automation
+
+---
+
+## 🏗️ Architecture
+
+![Architecture](https://github.com/user-attachments/assets/74f4f9c1-be18-42d4-b754-44b77b856ad5)
+
+### 3-Tier Architecture
+
+```
+User
+   │
+HTTP/HTTPS
+   │
+   ▼
+React Frontend
+   │
+REST API
+   ▼
+Flask Backend
+   │
+SQL
+   ▼
+MySQL Database
+```
+
+---
+
+## 🛠️ Technology Stack
 
 ### Frontend
-- React JS
+- React.js
 - Bootstrap
-- HTML
-- CSS
+- HTML5
+- CSS3
 - JavaScript
 
 ### Backend
 - Python
-- Flask Framework
+- Flask
 - Flask-CORS
 - REST API
 
 ### Database
 - MySQL
 
-### DevOps Tools
+### DevOps
 - Docker
 - Docker Compose
-- GitHub
+- Git & GitHub
 - Jenkins CI/CD
 
+---
 
-## Project Structure
+## 📁 Project Structure
 
-ev-management-system/
-
+```text
 EV-Management-System/
 ├── frontend/
 │   ├── src/
@@ -61,74 +89,143 @@ EV-Management-System/
 ├── docker-compose.yml
 ├── Jenkinsfile
 └── README.md
+```
 
-## Backend API
+---
+
+## 🚀 Backend API
 
 ### Get All Stations
 
-
+```http
 GET /stations
+```
 
+Example
 
-Example:
+```
 http://localhost:5000/stations
+```
 
+---
 
-### Filter By District
+### Get Stations by District
 
+```http
 GET /stations/<district>
+```
 
-## Docker Deployment
+Example
 
-Build images:
+```
+http://localhost:5000/stations/Chennai
+```
+
+---
+
+## 🐳 Docker Deployment
+
+### Build Images
 
 ```bash
 docker compose build
+```
 
-Start application:
+### Start Containers
 
+```bash
 docker compose up -d
+```
 
-Check containers:
+### Check Running Containers
 
+```bash
 docker ps
+```
 
-Stop application:
+### Stop Containers
 
+```bash
 docker compose down
-Application Ports
-Service	Port
-React Frontend	3000
-Flask Backend	5000
-MySQL Database	3306
-Jenkins CI/CD Pipeline
+```
+
+---
+
+## 🔌 Application Ports
+
+| Service | Port |
+|----------|------|
+| React Frontend | 3000 |
+| Flask Backend | 5000 |
+| MySQL Database | 3306 |
+
+---
+
+## ⚙️ Jenkins CI/CD Pipeline
 
 Pipeline stages:
 
-Clone Source Code
-Docker Verification
-Stop Old Containers
-Build Docker Images
-Deploy Containers
-Verify Deployment
-Git Commands
+1. Clone Source Code
+2. Verify Docker
+3. Stop Existing Containers
+4. Build Docker Images
+5. Deploy Containers
+6. Verify Deployment
 
-Clone repository:
+---
 
+## 📥 Installation
+
+Clone the repository:
+
+```bash
 git clone https://github.com/anandhan293/ev-management-system.git
+```
 
-Push changes:
+Move into the project directory:
 
+```bash
+cd ev-management-system
+```
+
+Build and start the application:
+
+```bash
+docker compose up --build -d
+```
+
+---
+
+## 📤 Git Commands
+
+```bash
 git add .
 git commit -m "Update EV Management System"
 git push origin main
-Future Enhancements
-User authentication
-Online EV charging booking
-Payment integration
-Charging history reports
-Cloud deployment using AWS
+```
 
-Author
+---
 
-Anandhan 
+## 🔮 Future Enhancements
+
+- User Authentication
+- Online EV Charging Booking
+- Payment Integration
+- Charging History
+- AWS Cloud Deployment
+- Email Notifications
+- Admin Dashboard
+
+---
+
+## 👨‍💻 Author
+
+**Anandhan v**
+
+AWS DevOps | Docker | Jenkins | Python | React | Flask
+
+---
+
+## ⭐ Support
+
+If you found this project useful, consider giving it a ⭐ on GitHub.
