@@ -62,15 +62,17 @@ MySQL Database
 
 ev-management-system/
 
+EV-Management-System/
 ├── frontend/
-│ ├── src/
-│ ├── package.json
-│ └── Dockerfile
+│   ├── src/
+│   ├── public/
+│   ├── package.json
+│   └── Dockerfile
 │
 ├── backend/
-│ ├── app.py
-│ ├── requirements.txt
-│ └── Dockerfile
+│   ├── app.py
+│   ├── requirements.txt
+│   └── Dockerfile
 │
 ├── docker-compose.yml
 ├── Jenkinsfile
