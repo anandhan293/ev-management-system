@@ -22,7 +22,8 @@ The EV Charging Station Management System is designed to manage electric vehicle
 
 ## 🏗️ Architecture
 
-![Uploading WhatsApp Image 2026-08-06 at 6.32.55 PM.jpeg…]()
+<img width="1264" height="842" alt="WhatsApp Image 2026-08-06 at 6 32 55 PM" src="https://github.com/user-attachments/assets/4ef0af64-68fa-48ce-90a0-847b4d184a0c" />
+
 
 
 
