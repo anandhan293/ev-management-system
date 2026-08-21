@@ -95,8 +95,8 @@ pipeline {
                 sh '''
                     sleep 20
 
-                    curl -f http://3.84.28.23:5000/ || \
-                    curl -f http://3.84.28.23:5000/stations || \
+                    curl -f http://54.166.52.251:5000/ || \
+                    curl -f http://54.166.52.251:5000/stations || \
                     echo "Backend endpoint not found."
                 '''
             }
